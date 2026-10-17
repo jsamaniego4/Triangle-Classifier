@@ -41,6 +41,20 @@ def test_valid_triangle_very_close_to_degenerate_boundary():
     assert classify_triangle(1, 2, 3 - 1e-10) == "Scalene"
 
 
+def test_short_positive_side_is_not_lost_to_rounding():
+    assert is_valid_triangle(1e-20, 1.0, 1.0) is True
+
+
+@pytest.mark.parametrize("direction, expected", [(-math.inf, True), (math.inf, False)])
+def test_immediate_neighbors_of_degenerate_boundary(direction, expected):
+    assert is_valid_triangle(1.0, 2.0, math.nextafter(3.0, direction)) is expected
+
+
+def test_large_integer_equilateral():
+    side = 10 ** 1000
+    assert classify_triangle(side, side, side) == "Equilateral"
+
+
 # --- Equilateral ------------------------------------------------------------
 
 @pytest.mark.parametrize("s", [1, 3, 7.5])

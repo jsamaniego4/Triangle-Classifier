@@ -14,6 +14,8 @@ REL_TOL = 1e-9
 
 def _is_number(x) -> bool:
     """True for finite real numbers. bool is rejected even though it is an int subclass."""
+    if isinstance(x, int):
+        return not isinstance(x, bool)
     return isinstance(x, Real) and not isinstance(x, bool) and math.isfinite(x)
 
 
@@ -30,7 +32,8 @@ def is_valid_triangle(a, b, c) -> bool:
         return False
     x, y, z = sorted((a, b, c))  # z is the longest side
     # Only the longest side can violate the inequality.
-    if x + y <= z:
+    # Subtraction preserves a short positive side that addition could round away.
+    if x <= z - y:
         return False
     return True
 
