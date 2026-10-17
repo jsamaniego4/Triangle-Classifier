@@ -105,12 +105,12 @@ that was not saved.
 Expected labels come from the assignment table, not from whatever the code
 happens to return.
 
-## Three ways I would steer Copilot
+## Three ways I steered Copilot
 
-1. **Start with the requirements.** "Write pytest tests from this table. Cover
+1. **Started with the requirements.** "Write pytest tests from this table. Cover
    invalid, equilateral, isosceles, scalene, and right triangles. Explain which
    requirement each test checks so I can review the expected result."
-2. **Ask about rounding.** "Include legs 5 and 5 with hypotenuse 5*sqrt(2), and
+2. **Asked about rounding.** "Include legs 5 and 5 with hypotenuse 5*sqrt(2), and
    include a near-right triangle that should not get the right-angle prefix.
    Explain where math.isclose is needed and where == is correct."
 3. **Push on the boundaries.** "Check values just below, equal to, and above the
