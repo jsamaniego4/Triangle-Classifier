@@ -1,7 +1,7 @@
-"""Instructor model: stained-glass customer acceptance test.
+"""Acceptance test for the stained-glass studio.
 
-This example is AI-assisted teaching material, not a record of a student's
-independent work. The three acceptance criteria are documented in README.md.
+Check shape labels, invalid-order messages, and right-angle flags.
+The three acceptance criteria are documented in README.md.
 """
 
 from math import sqrt
